@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>INDEX</title>
+</head>
+<body>
+
+<a href="/">Back to home</a>
+
+<h3>{{ .Title }}</h3>
+
+<p>{{ .Body }}</p>
+
+<ul>
+    {{ range .Comments }}
+        <li>{{ .Body }}</li>
+    {{ end }}
+</ul>
+
+<h3>Leave a comment:</h3>
+<form action="/posts/{{ .Slug }}/comments" method="POST">
+    <label for="body">Body:</label><br>
+    <textarea rows="6" name="body"></textarea><br>
+
+    <button type="submit">Comment</button>
+</form>
+
+</body>
+</html>
+
